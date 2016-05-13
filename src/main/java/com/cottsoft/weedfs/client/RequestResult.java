@@ -41,6 +41,9 @@ public class RequestResult implements Serializable {
 	
 	//File ID
 	private String fid;
+	
+	//File URL
+	private String fileUrl;
 
 	public boolean isStatus() {
 		return status;
@@ -66,6 +69,14 @@ public class RequestResult implements Serializable {
 		this.fid = fid;
 	}
 
+	public String getFileUrl() {
+		return fileUrl;
+	}
+
+	public void setFileUrl(String fileUrl) {
+		this.fileUrl = fileUrl;
+	}
+
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
@@ -75,6 +86,8 @@ public class RequestResult implements Serializable {
 		sb.append(size);
 		sb.append(", fid=");
 		sb.append(fid);
+		sb.append(", fileUrl=");
+		sb.append(fileUrl);
 		sb.append("]");
 		
 		return sb.toString();

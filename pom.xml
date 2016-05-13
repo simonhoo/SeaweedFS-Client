@@ -6,4 +6,47 @@
 	<version>0.0.1</version>
 	<name>Java Client for SeaweedFS</name>
 	<description>Java Client for SeaweedFS</description>
+	
+	<properties>
+		<com.google.code.gson.version>2.2.4</com.google.code.gson.version>
+		<org.apache.httpcomponents.version>4.2.5</org.apache.httpcomponents.version>
+		<junit.version>4.8.2</junit.version>
+	</properties>
+	
+	<dependencies>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${com.google.code.gson.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${org.apache.httpcomponents.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>${org.apache.httpcomponents.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>${org.apache.httpcomponents.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 </project>

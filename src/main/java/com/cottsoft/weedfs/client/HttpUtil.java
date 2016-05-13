@@ -21,29 +21,55 @@
  */
 package com.cottsoft.weedfs.client;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
- * Description：<br> 
+ * Description：<br>
  * SeaweedFS HTTP Client.
- * @author  simon
- * @date    2015-8-12
+ * 
+ * @author simon
+ * @date 2015-8-12
  * @version v1.0.0
  */
 public class HttpUtil {
 	
 	/**
 	 * Description：<br> 
-	 * Get
+	 * HTTP Request
+	 * @author  simon
+	 * @date    2016年5月13日
 	 * @version v1.0.0
 	 * @param host
-	 * @param requestURI
+	 * @param method
 	 * @return
 	 */
-	public static InputStream doGet(String host, String requestURI){
-		
+	public static InputStream request(String hostUrl, EHttpMethod method) {
+		try {
+			HttpURLConnection con = null;
+			URL requestUrl = new URL(hostUrl);
+			con = (HttpURLConnection) requestUrl.openConnection();
+
+			// optional default is GET
+			con.setRequestMethod(method.value());
+
+			// add request header
+			con.setRequestProperty("User-Agent", "");
+			//int responseCode = con.getResponseCode();
+
+			return con.getInputStream();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
+	
+	public static InputStream request(String host, String requestURI, EHttpMethod method) {
+		StringBuffer sb = new StringBuffer();
+		sb.append(host.trim());
+		sb.append(requestURI);
+		return request(sb.toString(), method);
+	}
 }
-
-

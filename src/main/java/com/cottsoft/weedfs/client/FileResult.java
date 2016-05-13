@@ -21,56 +21,30 @@
  */
 package com.cottsoft.weedfs.client;
 
-import java.io.Serializable;
-
 /**
- * Description：<br> 
- * SeaweedFS Server Location data model.
- * @author  simon
- * @date    2015-8-12
+ * Description：<br>
+ * File result
+ * @author simon
+ * @date 2015-8-12
  * @version v1.0.0
  */
-public class Location implements Serializable{
-	private static final long serialVersionUID = 552796864024183189L;
-	private String fid;
+public class FileResult {
+	private String name;
+	private int size;
 	
-	private String publicUrl;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getSize() {
+		return size;
+	}
+	public void setSize(int size) {
+		this.size = size;
+	}
 	
-	private String url;
-	
-	private int count;
-
-	public String getFid() {
-		return fid;
-	}
-
-	public void setFid(String fid) {
-		this.fid = fid;
-	}
-
-	public String getPublicUrl() {
-		return publicUrl;
-	}
-
-	public void setPublicUrl(String publicUrl) {
-		this.publicUrl = publicUrl;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	public int getCount() {
-		return count;
-	}
-
-	public void setCount(int count) {
-		this.count = count;
-	}
 	
 }
 

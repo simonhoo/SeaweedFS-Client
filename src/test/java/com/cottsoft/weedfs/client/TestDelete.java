@@ -21,57 +21,28 @@
  */
 package com.cottsoft.weedfs.client;
 
-import java.io.Serializable;
-
 /**
- * Description：<br> 
- * SeaweedFS Server Location data model.
- * @author  simon
- * @date    2015-8-12
+ * Description：<br>
+ * Test
+ * @author simon
+ * @date 2015-8-12
  * @version v1.0.0
  */
-public class Location implements Serializable{
-	private static final long serialVersionUID = 552796864024183189L;
-	private String fid;
-	
-	private String publicUrl;
-	
-	private String url;
-	
-	private int count;
+public class TestDelete {
 
-	public String getFid() {
-		return fid;
+	public static void main(String[] args) {
+		// These lines configuration with spring beans;
+		WeedfsClient client = new WeedfsClient();
+		client.setAssign("dir/assign");
+		client.setMasterHost("10.50.130.79");
+		client.setMasterPort(9333);
+		
+		RequestResult result = client.delete("12,1af7e3749f");
+		
+		System.out.println(result.toString());
+
 	}
 
-	public void setFid(String fid) {
-		this.fid = fid;
-	}
-
-	public String getPublicUrl() {
-		return publicUrl;
-	}
-
-	public void setPublicUrl(String publicUrl) {
-		this.publicUrl = publicUrl;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	public int getCount() {
-		return count;
-	}
-
-	public void setCount(int count) {
-		this.count = count;
-	}
-	
 }
 
 
