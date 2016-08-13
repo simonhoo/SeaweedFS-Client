@@ -1,18 +1,57 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.cottsoft.weedfs</groupId>
+	<groupId>com.cottsoft</groupId>
 	<artifactId>seaweedfs-client</artifactId>
 	<version>0.0.1</version>
-	<name>Java Client for SeaweedFS</name>
+	<name>${project.groupId}:${project.artifactId}</name>
 	<description>Java Client for SeaweedFS</description>
-	
+	<url>https://github.com/simonhoo/SeaweedFS-Client</url>
+
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Simon Hoo</name>
+			<email>simon@cottsoft.com</email>
+			<organization>cottsoft</organization>
+			<organizationUrl>http://www.cottsoft.com</organizationUrl>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>
+			scm:git:https://github.com/simonhoo/SeaweedFS-Client.git
+		</connection>
+		<developerConnection>
+			scm:git:https://github.com/simonhoo/SeaweedFS-Client.git
+		</developerConnection>
+		<url>https://github.com/simonhoo/SeaweedFS-Client</url>
+		<tag>v1.0.0</tag>
+	</scm>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
 	<properties>
 		<com.google.code.gson.version>2.2.4</com.google.code.gson.version>
 		<org.apache.httpcomponents.version>4.2.5</org.apache.httpcomponents.version>
 		<junit.version>4.8.2</junit.version>
 	</properties>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
@@ -49,4 +88,54 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- 配置生成javadoc和sources包的插件： -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- GPG sign -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+
+	</build>
 </project>
